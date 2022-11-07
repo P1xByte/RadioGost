@@ -1,8 +1,11 @@
+import discord
 from discord import FFmpegPCMAudio, Activity, ActivityType
 from discord.ext.commands import Bot
 import keep_alive
 import os
-bot = Bot(command_prefix="-", help_command=None)
+
+intents = discord.Intents.default()
+bot = Bot(command_prefix="-", help_command=None, intents=intents)
 
 @bot.event
 async def on_ready() -> None:

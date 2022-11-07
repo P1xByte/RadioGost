@@ -1,7 +1,11 @@
 from discord import FFmpegPCMAudio, Activity, ActivityType
 from discord.ext.commands import Bot
 import keep_alive
+import os
+import config
 bot = Bot(command_prefix="-", help_command=None)
+
+os.environ['token'] = config.settings['token']
 
 @bot.event
 async def on_ready() -> None:
@@ -13,4 +17,4 @@ async def on_ready() -> None:
     player.play(FFmpegPCMAudio("http://89.185.94.89:8000/rd_72_01"))
     
 keep_alive.keep_alive()
-bot.run("MTAzODkwNzg3MTA3ODkyODQ1Ng.GVZw0T.5V0LdQgBZL0g9jo_LHhh17FVa7Mp92SnY1Rias")
+bot.run(os.environ['token'])

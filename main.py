@@ -2,10 +2,7 @@ from discord import FFmpegPCMAudio, Activity, ActivityType
 from discord.ext.commands import Bot
 import keep_alive
 import os
-import config
 bot = Bot(command_prefix="-", help_command=None)
-
-os.environ['token'] = config.settings['token']
 
 @bot.event
 async def on_ready() -> None:
